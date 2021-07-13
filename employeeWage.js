@@ -47,7 +47,8 @@ function calcDailyWage(empHrs) {
 }
 
 /**
- * calculating total emp wage based on working hrs
+ * calculating total emp wage based on total working hrs and 
+ * total working days
  */
 while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
     totalWorkingDays++;
@@ -201,6 +202,7 @@ console.log("Part Working Days: " + partWorkingDays);
 console.log("Non Working Days: " + nonWorkingDays);
 
 /**
- * UC10 Emp wage and daily hous using array object
+ * UC10 Emp wage and daily hours using array object
  */
 console.log("UC10 showing Daily Hours Worked And Wage Earned : " + empDailyHrsAndWageArr);
+
