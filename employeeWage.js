@@ -11,6 +11,7 @@ const NUM_OF_WORKING_DAYS = 20;
 const MAX_HRS_IN_MONTH = 100;
 
 let empDailyWageArr = new Array(); //array to store emp wage
+let empDailyWageMap = new Map();
 let totalEmpHrs = 0;
 let totalWorkingDays = 0;
 let totalEmpWage = 0;
@@ -52,6 +53,7 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS
     let empHrs = getWorkingHours(empCheck);
     totalEmpHrs += empHrs;
     empDailyWageArr.push(calcDailyWage(empHrs));
+    empDailyWageMap.set(totalWorkingDays, calcDailyWage(empHrs));
 }
 
 let empWage = calcDailyWage(totalEmpHrs);
@@ -90,7 +92,7 @@ console.log(mapDayWithWageArr);
  * UC7C Daily wage for full time workers
  * @param {*} dailyWage 
  * @returns 
- */ 
+ */
 function fulltimeWage(dailyWage) {
     return dailyWage.includes("160");
 }
@@ -139,3 +141,17 @@ function totalDaysWorked(numOfDays, dailyWage) {
     return numOfDays;
 }
 console.log("UC 7G - Number of Days Emp Worked :" + empDailyWageArr.reduce(totalDaysWorked, 0));
+
+
+/**
+ * UC8 Total employee wage using map
+ * @param {*} totalWage 
+ * @param {*} dailyWage 
+ * @returns 
+ */
+console.log(empDailyWageMap);
+
+function totalWages(totalWage, dailyWage) {
+    return totalWage + dailyWage;
+}
+console.log("UC8 - Emp Wage Map totalHrs : " + Array.from(empDailyWageMap.values()).reduce(totalWages, 0));
